@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Modèle monopage – Base neutre</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"><style>
+/* ==== Palette & reset (condensé) ==== */
+:root{--brand:#1e40af;--ink:#0b1220;--muted:#6b7280;--bg:#fff;--surface:#f3f4f6;--accent:#e5e7eb;--ring:#93c5fd}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Open Sans',sans-serif;line-height:1.6;color:var(--ink);background:var(--bg)}
+h1,h2,h3{font-family:'Playfair Display',serif;color:var(--ink);margin-bottom:2rem}
+a{text-decoration:none;color:inherit}
+.container{width:90%;max-width:1200px;margin:0 auto}
+/* Header */
+header{position:fixed;top:0;left:0;width:100%;background:#ffffff;padding:15px 0;border-bottom:1px solid var(--accent);z-index:1000}
+.header-content{display:flex;justify-content:space-between;align-items:center}
+.logo img{height:60px;width:auto;display:block;filter:grayscale(100%)}
+.logo{margin-left:10px}
+.menu-toggle{display:none;background:none;border:0;font-size:1.8rem;cursor:pointer}
+nav{margin-left:auto}
+.nav-links{list-style:none;display:flex;gap:20px}
+.nav-links a{padding:5px 10px;font-weight:600;border-radius:10px}
+.nav-links a:hover{background:var(--accent)}
+/* Hero */
+.hero{min-height:70vh;background:var(--surface) center/cover no-repeat;position:relative;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#0000,rgba(0,0,0,.15));z-index:1}
+.hero-content{position:relative;color:var(--ink);padding:6rem 2rem;z-index:2}
+.hero .btn{background:var(--brand);color:#fff;font-size:1.05rem;padding:.7rem 1.4rem;border:0;border-radius:8px;cursor:pointer}
+.hero .btn:hover{filter:brightness(1.05)}
+/* Sections global */
+section{padding:64px 0}
+.about{background:var(--surface);text-align:center}
+.about p{max-width:none;width:100%;margin:auto;line-height:1.9;padding:12px 0;font-size:1.05rem;text-align:justify;color:var(--ink)}
+#histoire{padding:48px 0}
+.espaces .space-grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.space img{width:100%;border-radius:10px;filter:grayscale(100%)}
+.space h3{margin-top:8px}
+.events{background:#fff;text-align:center}
+.event-list{list-style:none;margin-top:16px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.event-list li{background:var(--accent);padding:8px 14px;border-radius:18px;color:var(--ink)}
+.galerie .gallery-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.galerie img{width:100%;height:auto;border-radius:8px;filter:grayscale(100%)}
+/* Contact */
+.contact-wrapper{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}
+.map{flex:1 1 300px;min-height:300px;background:var(--accent)}
+.form-area{flex:1 1 300px}
+.form-area form{display:flex;flex-direction:column;gap:10px}
+.form-area input,.form-area textarea{width:100%;padding:10px;border:1px solid var(--accent);border-radius:8px}
+.form-area input:focus,.form-area textarea:focus{outline:3px solid var(--ring);outline-offset:2px}
+.coords{margin-top:12px;text-align:center;font-size:.98rem;line-height:1.7}
+.coords a{color:var(--brand);text-decoration:underline;font-weight:700}
+footer{background:#fff;border-top:1px solid var(--accent);color:var(--muted);padding:20px 0}
+.footer-content{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.footer-links a{margin:0 10px;color:var(--muted)}
+.footer-links a:hover{color:var(--ink)}
+/* Animations */
+.fade-in{opacity:0;transform:translateY(16px);transition:opacity .6s ease-out,transform .6s ease-out}
+.fade-in.show{opacity:1;transform:none}
+/* Responsive */
+@media (max-width:768px){.menu-toggle{display:block}nav{position:absolute;top:100%;right:0;background:#fff;border:1px solid var(--accent);display:none}.nav-links{flex-direction:column;padding:10px 20px;gap:10px}nav.open{display:block}}
+body{padding-top:80px}
+/* ===== Testimonials (multi-cards neutre) ===== */
+.testimonials{position:relative}
+.t-viewport{position:relative;overflow:hidden}
+.t-track{display:flex;gap:14px;transition:transform .5s ease;will-change:transform}
+.t-item{flex:0 0 28%}
+@media (max-width:1024px){.t-item{flex:0 0 48%}}
+@media (max-width:768px){.t-item{flex:0 0 100%}}
+.t-card{height:100%;background:#fff;border:1px solid var(--accent);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.04);padding:16px}
+.t-stars{display:flex;justify-content:center;margin-bottom:4px;color:var(--brand);font-size:.95rem;letter-spacing:2px}
+.t-quote{font-size:.98rem;line-height:1.7;font-style:italic;color:var(--ink);margin:6px 0 10px}
+.t-author{display:flex;justify-content:center;gap:8px;align-items:center;color:var(--muted)}
+.t-name{color:var(--brand);font-weight:700}
+.t-nav{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:1px solid var(--accent);box-shadow:0 6px 14px rgba(0,0,0,.06);color:var(--brand);border-radius:999px;width:44px;height:44px;font-size:22px;line-height:44px;text-align:center;cursor:pointer;z-index:5}
+.t-nav.prev{left:10px}
+.t-nav.next{right:10px}
+.t-nav:hover{filter:brightness(.98)}
+.t-dots{display:flex;justify-content:center;gap:10px;margin-top:14px}
+.t-dots button{width:10px;height:10px;border-radius:50%;border:0;background:#d7d7d7;cursor:pointer}
+.t-dots button.active{background:var(--brand)}
+/* === Section événements (visuel optionnel) === */
+.events.hero-style{position:relative;background:var(--surface);color:var(--ink);padding:56px 0;z-index:1}
+.events.hero-style .overlay{display:none}
+.events-content{position:relative;z-index:2;text-align:center;max-width:1200px;margin:auto}
+.events-content h2{margin-bottom:1.2rem}
+.events-content p{font-size:1.05rem;line-height:1.8;margin-bottom:1.2rem;color:var(--ink)}
+.events-content .event-list{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;padding:0;list-style:none}
+.events-content .event-list li{background:var(--accent);color:var(--ink);padding:8px 14px;border-radius:18px;font-weight:600;font-size:.95rem}
+html,body{overflow-x:hidden}
+</style></head><body>
+<!-- ================= HEADER ================= -->
+<header><div class="container header-content"><div class="logo"><a href="#accueil"><img src="" alt="(Logo)"><!-- SLOT: header.logo --></a></div><button class="menu-toggle" aria-label="Menu">☰</button><nav><ul class="nav-links"><li><a href="#accueil"><!-- SLOT: nav.home --> (Menu Accueil)</a></li><li><a href="#histoire"><!-- SLOT: nav.section1 --> (Menu À propos)</a></li><li><a href="#espaces"><!-- SLOT: nav.section2 --> (Menu Espaces)</a></li><li><a href="#evenements"><!-- SLOT: nav.section3 --> (Menu Événements)</a></li><li><a href="#galerie"><!-- SLOT: nav.section4 --> (Menu Galerie)</a></li><li><a href="#avis"><!-- SLOT: nav.section5 --> (Menu Avis)</a></li><li><a href="#contact"><!-- SLOT: nav.section6 --> (Menu Contact)</a></li></ul></nav></div></header>
+
+<!-- ================= HERO ================= -->
+<section id="accueil" class="hero"><!-- SLOT: hero.image → définir background-image sur .hero (CSS inline ou classe) --><div class="hero-content fade-in"><h1><!-- SLOT: hero.title --> (Titre héros / H1)</h1><p><!-- SLOT: hero.subtitle --> (Sous-titre héros / texte court)</p><a href="#histoire" class="btn"><!-- SLOT: hero.cta --> (Bouton primaire)</a></div></section>
+
+<!-- ================= À PROPOS ================= -->
+<section id="histoire" class="about fade-in"><div class="container"><h2><!-- SLOT: about.title --> (Titre section À propos)</h2><p><!-- SLOT: about.text --> (Texte section À propos – paragraphe long)</p></div></section>
+
+<!-- ================= ESPACES ================= -->
+<section id="espaces" class="espaces"><div class="container"><h2 class="fade-in"><!-- SLOT: spaces.title --> (Titre section Espaces)</h2><div class="space-grid"><div class="space fade-in"><img src="" alt="" /><!-- SLOT: spaces.1.image --><h3><!-- SLOT: spaces.1.title --> (Titre espace 1)</h3><p><!-- SLOT: spaces.1.text --> (Texte espace 1)</p></div><div class="space fade-in"><img src="" alt="" /><!-- SLOT: spaces.2.image --><h3><!-- SLOT: spaces.2.title --> (Titre espace 2)</h3><p><!-- SLOT: spaces.2.text --> (Texte espace 2)</p></div><div class="space fade-in"><img src="" alt="" /><!-- SLOT: spaces.3.image --><h3><!-- SLOT: spaces.3.title --> (Titre espace 3)</h3><p><!-- SLOT: spaces.3.text --> (Texte espace 3)</p></div><div class="space fade-in"><img src="" alt="" /><!-- SLOT: spaces.4.image --><h3><!-- SLOT: spaces.4.title --> (Titre espace 4)</h3><p><!-- SLOT: spaces.4.text --> (Texte espace 4)</p></div></div></div></section>
+
+<!-- ================= ÉVÉNEMENTS ================= -->
+<section id="evenements" class="events hero-style"><div class="container"><div class="events-content"><h2><!-- SLOT: events.title --> (Titre section Événements)</h2><p><!-- SLOT: events.text --> (Texte section Événements – paragraphe)</p><ul class="event-list"><li><!-- SLOT: events.tag1 --> (Tag 1)</li><li><!-- SLOT: events.tag2 --> (Tag 2)</li><li><!-- SLOT: events.tag3 --> (Tag 3)</li><li><!-- SLOT: events.tag4 --> (Tag 4)</li><li><!-- SLOT: events.tag5 --> (Tag 5)</li></ul></div></div></section>
+
+<!-- ================= GALERIE ================= -->
+<section id="galerie" class="galerie"><div class="container"><h2 class="fade-in"><!-- SLOT: gallery.title --> (Titre section Galerie)</h2><div class="gallery-grid"><img src="" alt="" /><!-- SLOT: gallery.1 --><img src="" alt="" /><!-- SLOT: gallery.2 --><img src="" alt="" /><!-- SLOT: gallery.3 --><img src="" alt="" /><!-- SLOT: gallery.4 --><img src="" alt="" /><!-- SLOT: gallery.5 --><img src="" alt="" /><!-- SLOT: gallery.6 --><img src="" alt="" /><!-- SLOT: gallery.7 --><img src="" alt="" /><!-- SLOT: gallery.8 --><img src="" alt="" /><!-- SLOT: gallery.9 --><img src="" alt="" /><!-- SLOT: gallery.10 --></div></div></section>
+
+<!-- ================= AVIS ================= -->
+<section id="avis" class="reviews"><div class="container"><h2 class="fade-in"><!-- SLOT: reviews.title --> (Titre section Avis)</h2><div class="testimonials"><div class="t-viewport"><button class="t-nav prev" aria-label="Avis précédent">‹</button><div class="t-track"><article class="t-item"><div class="t-card"><div class="t-stars" aria-label="Note 5 sur 5">★★★★★</div><p class="t-quote"><!-- SLOT: reviews.1.text --> (Texte avis 1)</p><div class="t-author"><span class="t-name"><!-- SLOT: reviews.1.name --> — Mr Test</span></div></div></article><article class="t-item"><div class="t-card"><div class="t-stars" aria-label="Note 5 sur 5">★★★★★</div><p class="t-quote"><!-- SLOT: reviews.2.text --> (Texte avis 2)</p><div class="t-author"><span class="t-name"><!-- SLOT: reviews.2.name --> — Mme Modèle</span></div></div></article><article class="t-item"><div class="t-card"><div class="t-stars" aria-label="Note 5 sur 5">★★★★★</div><p class="t-quote"><!-- SLOT: reviews.3.text --> (Texte avis 3)</p><div class="t-author"><span class="t-name"><!-- SLOT: reviews.3.name --> — Mr Test</span></div></div></article><article class="t-item"><div class="t-card"><div class="t-stars" aria-label="Note 5 sur 5">★★★★★</div><p class="t-quote"><!-- SLOT: reviews.4.text --> (Texte avis 4)</p><div class="t-author"><span class="t-name"><!-- SLOT: reviews.4.name --> — Mme Modèle</span></div></div></article></div><button class="t-nav next" aria-label="Avis suivant">›</button></div><div class="t-dots" aria-label="Pagination avis"></div></div></section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact"><div class="container contact-wrapper fade-in"><div class="map"><!-- SLOT: contact.map → intégrer iframe Google Maps ici --></div><div class="form-area"><form><!-- SLOT: contact.form --><label>(Label nom)<input type="text" name="nom" placeholder="(Nom)" required></label><label>(Label email)<input type="email" name="email" placeholder="(Email)" required></label><label>(Label message)<textarea name="message" rows="5" placeholder="(Votre message)" required></textarea></label><button type="submit" class="btn" style="background:var(--brand);color:#fff;border:0;border-radius:8px;padding:.7rem 1.2rem">(Envoyer)</button></form><div class="coords"><p><strong><!-- SLOT: contact.address --> (Adresse)</strong></p><p><strong><a href="tel:"><!-- SLOT: contact.phone --> (Téléphone cliquable)</a></strong></p><p><strong><a href="mailto:"><!-- SLOT: contact.email --> (Email cliquable)</a></strong></p></div></div></div></section>
+
+<!-- ================= FOOTER ================= -->
+<footer><div class="container footer-content"><p>© <span id="year"></span> <!-- SLOT: footer.brand --> (Nom du site) — Tous droits réservés.</p><div class="footer-links"><a href="#"><!-- SLOT: footer.mentions --> (Mentions légales)</a><a href="#" target="_blank"><!-- SLOT: footer.facebook --> (Facebook)</a><a href="#" target="_blank"><!-- SLOT: footer.instagram --> (Instagram)</a></div></div></footer>
+
+<script>
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const href=a.getAttribute('href');if(href==='#'||href==='#0')return;e.preventDefault();const t=document.querySelector(href);t&&t.scrollIntoView({behavior:'smooth'})})});
+// Sticky header
+window.addEventListener('scroll',()=>{const h=document.querySelector('header');h.classList.toggle('sticky',window.scrollY>50)});
+// Menu mobile
+document.querySelector('.menu-toggle')?.addEventListener('click',()=>{document.querySelector('header nav')?.classList.toggle('open')});
+document.addEventListener('click',e=>{const nav=document.querySelector('header nav');const tog=document.querySelector('.menu-toggle');if(!nav||!tog)return;const inside=nav.contains(e.target);const on=tog.contains(e.target);if(!inside&&!on&&nav.classList.contains('open'))nav.classList.remove('open')});
+// Fade-in
+const obs=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('show');obs.unobserve(en.target)}})},{threshold:.1});document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+// Footer year
+document.getElementById('year').textContent=new Date().getFullYear();
+// Testimonials slider (multi-cards)
+const tViewport=document.querySelector('.t-viewport');const tTrack=document.querySelector('.t-track');const tItems=[...document.querySelectorAll('.t-item')];const tPrev=document.querySelector('.t-nav.prev');const tNext=document.querySelector('.t-nav.next');const tDots=document.querySelector('.t-dots');let tIndex=0;function vis(){const w=tViewport.clientWidth;const iw=tItems[0]?.clientWidth||w;return Math.max(1,Math.floor(w/iw))}function g(){const s=getComputedStyle(tTrack).gap||'0';return parseFloat(s)||0}function upd(){const iw=tItems[0]?.clientWidth||tViewport.clientWidth;const step=iw+g();const max=Math.max(0,tItems.length-vis());if(tIndex>max)tIndex=max;if(tIndex<0)tIndex=0;tTrack.style.transform=`translateX(-${tIndex*step}px)`;dots()}function dots(){const pages=Math.max(1,tItems.length-vis()+1);if(tDots.childElementCount!==pages){tDots.innerHTML='';for(let i=0;i<pages;i++){const b=document.createElement('button');if(i===0)b.classList.add('active');b.addEventListener('click',()=>{tIndex=i;upd()});tDots.appendChild(b)}}[...tDots.children].forEach((d,idx)=>d.classList.toggle('active',idx===tIndex))}tPrev?.addEventListener('click',()=>{tIndex--;upd()});tNext?.addEventListener('click',()=>{tIndex++;upd()});window.addEventListener('resize',upd);upd();
+</script></body></html>
