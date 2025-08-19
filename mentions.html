@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mentions légales – Modèle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+  :root{--brand:#1e40af;--ink:#0b1220;--muted:#6b7280;--bg:#fff;--surface:#f3f4f6;--accent:#e5e7eb}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Open Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+  a{color:var(--brand);text-decoration:none}
+  header{border-bottom:1px solid var(--accent);background:#fff;position:sticky;top:0}
+  .container{width:90%;max-width:1000px;margin:0 auto;padding:18px 0}
+  h1,h2{font-family:'Playfair Display',serif}
+  h1{font-size:clamp(28px,4.5vw,40px);margin:8px 0 4px}
+  .meta{color:var(--muted);font-size:.95rem}
+  main{padding:28px 0 64px}
+  section{padding:18px 0;border-top:1px solid var(--accent)}
+  section:first-of-type{border-top:0}
+  h2{font-size:clamp(20px,2.8vw,26px);margin-bottom:8px}
+  ul{padding-left:18px}
+  .back{display:inline-block;margin-top:8px}
+  footer{border-top:1px solid var(--accent);color:var(--muted);padding:18px 0;margin-top:32px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a class="back" href="index.html">← Retour à l'accueil</a>
+      <h1><!-- SLOT: legal.title --> Mentions légales</h1>
+      <div class="meta">Dernière mise à jour : <time id="maj"></time></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="editeur">
+      <h2><!-- SLOT: legal.editor.title --> Éditeur du site</h2>
+      <p><!-- SLOT: legal.editor.body -->
+        Dénomination : (Nom de la société / de l'éditeur)<br>
+        Forme juridique : (SARL / SAS / Auto-entrepreneur / …)<br>
+        Capital social : (Montant, si applicable)<br>
+        SIREN/SIRET : (Numéro) – TVA intracom : (Numéro)<br>
+        Siège social : (Adresse complète)<br>
+        Directeur(trice) de la publication : (Nom)<br>
+        Contact : <a href="mailto:">(Email)</a> – <a href="tel:">(Téléphone)</a>
+      </p>
+    </section>
+
+    <section id="hebergeur">
+      <h2><!-- SLOT: legal.host.title --> Hébergeur</h2>
+      <p><!-- SLOT: legal.host.body -->
+        (Nom de l'hébergeur)<br>
+        (Adresse complète)<br>
+        Tél. : (Numéro) – Site : <a href="#">(URL)</a>
+      </p>
+    </section>
+
+    <section id="propriete">
+      <h2><!-- SLOT: legal.ip.title --> Propriété intellectuelle</h2>
+      <p><!-- SLOT: legal.ip.body -->
+        L'ensemble des contenus (textes, images, logos, vidéos, icônes, structure du site) est protégé par le droit d'auteur et/ou le droit des marques. Toute reproduction, représentation, modification, publication, transmission, dénaturation totale ou partielle du site ou de son contenu, par quelque procédé que ce soit, est interdite sans autorisation écrite préalable de l'éditeur.
+      </p>
+    </section>
+
+    <section id="donnees">
+      <h2><!-- SLOT: legal.rgpd.title --> Données personnelles</h2>
+      <p><!-- SLOT: legal.rgpd.body -->
+        Les données collectées via les formulaires du site sont traitées pour (Finalités : ex. gestion des demandes de contact et prospection). Base légale : (intérêt légitime / exécution d'un contrat / consentement). Durée de conservation : (durée). Destinataires : (service interne et/ou prestataires).<br>
+        Conformément au RGPD, vous disposez des droits d’accès, de rectification, d’effacement, d’opposition, de limitation et de portabilité. Pour les exercer : <a href="mailto:">(Email DPO ou contact)</a>.<br>
+        Vous pouvez introduire une réclamation auprès de la CNIL : <a href="https://www.cnil.fr/">cnil.fr</a>.
+      </p>
+    </section>
+
+    <section id="cookies">
+      <h2><!-- SLOT: legal.cookies.title --> Cookies</h2>
+      <p><!-- SLOT: legal.cookies.body -->
+        Le site peut déposer des cookies techniques nécessaires à son fonctionnement et, le cas échéant, des cookies de mesure d’audience et/ou marketing soumis à votre consentement. Vous pouvez paramétrer vos choix à tout moment depuis le bandeau ou les réglages du navigateur.
+      </p>
+    </section>
+
+    <section id="mediation">
+      <h2><!-- SLOT: legal.mediation.title --> Médiation de la consommation</h2>
+      <p><!-- SLOT: legal.mediation.body -->
+        Conformément à l’article L.612-1 du Code de la consommation, en cas de litige, le consommateur peut recourir gratuitement au médiateur suivant : (Nom de l’organisme de médiation, coordonnées, site web).
+      </p>
+    </section>
+
+    <section id="droit-applicable">
+      <h2><!-- SLOT: legal.law.title --> Droit applicable – Juridiction compétente</h2>
+      <p><!-- SLOT: legal.law.body -->
+        Les présentes mentions légales sont régies par le droit français. En cas de litige et à défaut de résolution amiable, les tribunaux compétents seront ceux du ressort de (Ville).
+      </p>
+    </section>
+
+    <section id="credits">
+      <h2><!-- SLOT: legal.credits.title --> Crédits</h2>
+      <p><!-- SLOT: legal.credits.body -->
+        Conception & développement : (Nom / Agence).<br>
+        Crédits photos : (Auteur / Banque d’images).<br>
+        Icônes : (Pack / Licence).
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> <!-- SLOT: footer.brand --> (Nom du site)</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const d=new Date();document.getElementById('maj').textContent=d.toLocaleDateString('fr-FR');
+  </script>
+</body>
+</html>
